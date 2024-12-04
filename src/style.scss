@@ -1,0 +1,166 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  color: #8c8c8c;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.content {
+  margin: 40px;
+}
+
+$base-font-size: 12px;
+$heading-scale: 6; //Amount of px headings grow from h6 to h1
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $base-font-size + $heading-scale * (6 - $i);
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #141414;
+    display: inline-block;
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.box {
+  display: inline-flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.generator {
+  padding: 24px 24px 0 24px;
+  text-align: center;
+  input,
+  button {
+    display: block;
+    margin: auto;
+    width: 140px;
+    outline: none;
+    border: 0;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  button {
+    padding: 12px;
+    background: #141414;
+    color: #fff;
+    border: 0;
+    &:hover {
+      background: #1f1f1f;
+    }
+  }
+  input {
+    text-transform: uppercase;
+    &:focus-visible {
+      border: 0;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.colors {
+  padding: 24px;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: #141414;
+  border-radius: 24px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 16px 32px 0px rgba(78, 78, 78, 0.1);
+  ul {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      flex: 1 0 0;
+      $size: 80px;
+      margin: 8px;
+      padding: 4px;
+      border-radius: 8px;
+      min-width: $size;
+      max-width: $size;
+      height: $size;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.dark {
+  background: #141414;
+  color: #fff;
+  @for $i from 1 through 6 {
+    h#{$i} {
+      color: #fff;
+    }
+  }
+}
+
+/*Color Picker*/
+/* Picker */
+.picker {
+  display: flex;
+  overflow: hidden;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Picker focus ring */
+.picker:focus-within {
+  outline: 2px dotted #212121;
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
+/* Color picker */
+input[type="color"] {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  -webkit-appearance: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 740px) {
+  .flex {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
